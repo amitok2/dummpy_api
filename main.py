@@ -4,11 +4,13 @@ import uuid
 from datetime import datetime
 from typing import List
 from typing import Union
+
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from pydantic import Field
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
@@ -18,6 +20,14 @@ hebrew_text = (
     "כאן אנו מוסיפים עוד כמה משפטים כדי ליצור קטע ארוך יותר שניתן להזרימו לממשק המשתמש.\n"
     "בנוסף, הקטע האחרון בזרימה מסומן כ'סיכום' להשלמת הדוגמה."
 )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],           # Allow all origins
+    allow_credentials=True,         # Allow credentials such as cookies and authorization headers
+    allow_methods=["*"],            # Allow all HTTP methods
+    allow_headers=["*"],            # Allow all headers
+)
+
 
 empty_text = (
   ""
