@@ -146,8 +146,18 @@ async def submit_feedback(feedback: Union[LLMAnswerFeedback, SingleReportFeedbac
 # Update post route to handle feedback submissions
 @app.get("/get_hapaks")
 async def get_hapaks():
-    return ['חפק1', 'חפק2', 'חפק3', 'חפק4', 'חפק5', 'חפק6', 'חפק7', 'חפק8', 'חפק9', 'חפק10']
-
+    return [
+        {"value": "חפק1", "label": "חפק1"},
+        {"value": "חפק2", "label": "חפק2"},
+        {"value": "חפק3", "label": "חפק3"},
+        {"value": "חפק4", "label": "חפק4"},
+        {"value": "חפק5", "label": "חפק5"},
+        {"value": "חפק6", "label": "חפק6"},
+        {"value": "חפק7", "label": "חפק7"},
+        {"value": "חפק8", "label": "חפק8"},
+        {"value": "חפק9", "label": "חפק9"},
+        {"value": "חפק10", "label": "חפק10"}
+    ]
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
