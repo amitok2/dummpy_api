@@ -123,6 +123,7 @@ async def stream_data(request_data: RequestData):
 
 @app.post("/get_report")
 async def get_report(request_data: RequestData):
+    print(request_data)
     report_id = request_data.report_id
     report_data = request_ids.get(report_id)
 
@@ -135,6 +136,7 @@ async def get_report(request_data: RequestData):
 # Update post route to handle feedback submissions
 @app.post("/submit_feedback")
 async def submit_feedback(feedback: Union[LLMAnswerFeedback, SingleReportFeedback]):
+    print(feedback)
     if isinstance(feedback, LLMAnswerFeedback):
         # Handle feedback for LLMAnswerFeedback
         return {
