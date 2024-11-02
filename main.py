@@ -64,8 +64,8 @@ class RequestData(BaseModel):
 
 
 class RequestReportId(RequestData):
-    report_id: str  # Additional field to fetch specific report data
-
+    report_id: str
+    query_id: str
 
 class LLMAnswerFeedback(RequestData):
     llm_answer: str
@@ -123,7 +123,7 @@ async def stream_data(request_data: RequestData):
 
 
 @app.post("/get_report")
-async def get_report(request_data: RequestData):
+async def get_report(request_data: RequestReportId):
     print(request_data)
     report_id = request_data.report_id
     report_data = request_ids.get(report_id)
