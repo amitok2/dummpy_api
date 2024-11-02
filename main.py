@@ -63,8 +63,10 @@ class RequestData(BaseModel):
     return_empty: bool = False
 
 
-class RequestReportId(RequestData):
+class RequestReportId(BaseModel):
     report_id: str
+    auth_token: str
+    session_id: str
     query_id: str
 
 class LLMAnswerFeedback(RequestData):
