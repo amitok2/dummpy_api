@@ -81,6 +81,8 @@ class SingleReportFeedback(BaseModel):
     report_id: str
     is_relevant: bool
     report_title: str
+    query_id: str
+
 
 
 async def fake_data_generator():
