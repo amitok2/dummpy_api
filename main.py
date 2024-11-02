@@ -75,7 +75,9 @@ class LLMAnswerFeedback(RequestData):
 
 
 # Second feedback model
-class SingleReportFeedback(RequestData):
+class SingleReportFeedback(BaseModel):
+    auth_token: str
+    session_id: str
     report_id: str
     is_relevant: bool
     report_title: str
@@ -151,11 +153,7 @@ async def submit_feedback(feedback: Union[LLMAnswerFeedback, SingleReportFeedbac
     elif isinstance(feedback, SingleReportFeedback):
         # Handle feedback for SingleReportFeedback
         return {
-            "message": "Single report feedback received",
-            "query": feedback.query,
-            "is_relevant": feedback.is_relevant,
-            "report_id": feedback.report_id,
-            "report_title": feedback.report_title
+            "success": True
         }
 
 
