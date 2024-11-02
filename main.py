@@ -94,7 +94,7 @@ async def fake_data_generator():
                 "section_name": section_name
             }
             yield json.dumps(response_data) + "\n"  # No additional "\n" here
-            await asyncio.sleep(0.07)
+            await asyncio.sleep(0.01)
 
         # After each line, insert a generated link
         available_ids = [id for id in chosen_request_ids if id not in used_request_ids]
@@ -109,7 +109,7 @@ async def fake_data_generator():
             "section_name": section_name
         }
         yield json.dumps(response_data) + "\n"
-        await asyncio.sleep(0.07)
+        await asyncio.sleep(0.01)
 
 
 @app.post("/run_chat_stream")
