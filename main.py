@@ -23,10 +23,11 @@ hebrew_text = (
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],           # Allow all origins
-    allow_credentials=True,         # Allow credentials such as cookies and authorization headers
-    allow_methods=["*"],            # Allow all HTTP methods
-    allow_headers=["*"],            # Allow all headers
+    allow_origins=["*"],               # Allow all origins
+    allow_credentials=True,             # Allow cookies and authorization headers
+    allow_methods=["*"],                # Allow all HTTP methods
+    allow_headers=["*"],                # Allow all headers
+    expose_headers=["Request-Ids", "Query-Id"],  # Expose specific headers to the UI
 )
 
 
